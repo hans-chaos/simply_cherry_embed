@@ -217,6 +217,7 @@ static hpm_stat_t board_uart_dma_config(void)
         dma_mgr_enable_chn_irq(resource, DMA_MGR_INTERRUPT_MASK_TC);
         dma_mgr_enable_dma_irq_with_priority(resource, 1);
     }
+    printf("uart rx configed");
     /* uart tx dma config */
     resource = &dma_resource_pools[UART_TX_DMA_RESOURCE_INDEX];
     if (dma_mgr_request_resource(resource) == status_success) {
@@ -232,6 +233,8 @@ static hpm_stat_t board_uart_dma_config(void)
         dma_mgr_install_chn_tc_callback(resource, dma_channel_tc_callback, NULL);
         dma_mgr_enable_chn_irq(resource, DMA_MGR_INTERRUPT_MASK_TC);
         dma_mgr_enable_dma_irq_with_priority(resource, 1);
+        
+        printf("uart tx config");
     }
     return status_success;
 }
