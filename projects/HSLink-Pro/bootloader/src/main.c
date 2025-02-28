@@ -121,7 +121,8 @@ int main(void)
     dma_mgr_init();
     show_logo();
     //HSP_Init(); // 关闭电源输出，将电平修改为3.3V
-    printf("inited usb");
+    USB_LOG_INFO("inited usb\r\n");
+    printf("inited usb\t\n");
     board_init_usb(HPM_USB0);
     bootloader_button_init();
     WS2812_Init();
