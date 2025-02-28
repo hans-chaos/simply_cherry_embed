@@ -140,7 +140,7 @@ int main(void)
     )
     {
         USB_LOG_INFO("Jump to application @0x%x(0x%x)\r\n", CONFIG_BOOTUF2_APP_START, *(volatile uint32_t *)CONFIG_BOOTUF2_APP_START);
-        TurnOffLED();
+        //TurnOffLED();
         jump_app();
         while (1)
             ;
