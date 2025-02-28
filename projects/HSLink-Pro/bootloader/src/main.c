@@ -120,7 +120,7 @@ int main(void)
     board_init();
     dma_mgr_init();
     show_logo();
-    HSP_Init(); // 关闭电源输出，将电平修改为3.3V
+    //HSP_Init(); // 关闭电源输出，将电平修改为3.3V
     printf("inited usb");
     board_init_usb(HPM_USB0);
     bootloader_button_init();
