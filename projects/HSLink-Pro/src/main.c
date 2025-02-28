@@ -42,25 +42,27 @@ static inline void SWDIO_DIR_Init(void)
 int main(void)
 {
     board_init();
-    USB_LOG_INFO("init usb\r\n");
-    printf("board_inited");
     serial_number_init();
-    USB_LOG_INFO("init usb\r\n");
-    printf("init usb");
     board_init_usb(HPM_USB0);
+    printf("usb inited");
     dma_mgr_init();
-
+    printf("dma inited");
     SWDIO_DIR_Init();
 
     printf("version: " CONFIG_BUILD_VERSION "\n");
     memcpy(string_descriptors[3], serial_number, 32);
 
+    printf("init hsp");
     HSP_Init();
+    printf("inited hsp");
 
     intc_set_irq_priority(CONFIG_HPM_USBD_IRQn, 5);
+    printf("intc_setted");
     uartx_preinit();
+    printf("uartx preninited");
 
     USB_Configuration();
+    printf("usb configered");
 
     while (1) {
         chry_dap_handle();
