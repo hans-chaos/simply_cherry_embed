@@ -194,6 +194,7 @@ static hpm_stat_t board_uart_dma_config(void)
         chg_config.size_in_byte = UART_RX_DMA_BUFFER_SIZE;
         chg_config.en_dmamux = true;
         chg_config.dmamux_src = UART_RX_DMA;
+        printf("uart rx dma init size: %d",rx_desc_size);
         for (i = 0; i < rx_desc_size; i++) {
             if (i < (rx_desc_size - 1)) {
                 chg_config.dst_addr = core_local_mem_to_sys_address(BOARD_RUNNING_CORE, (uint32_t)uart_rx_buf[i]);
