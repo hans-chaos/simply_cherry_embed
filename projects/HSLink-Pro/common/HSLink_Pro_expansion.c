@@ -272,16 +272,16 @@ void HSP_Init(void)
     // 初始化电源部分
     Power_Enable_Init();
     Port_Enable_Init();
-    Power_PWM_Init();
+    //Power_PWM_Init();
 
     // 初始化ADC部分
-    ADC_Init();
-    VREF_Init();
-    TVCC_Init();
+    //ADC_Init();
+    //VREF_Init();
+    //TVCC_Init();
 
     BOOT_Init();
 
-    WS2812_Init();
+    //WS2812_Init();
 }
 
 void HSP_Loop(void)
