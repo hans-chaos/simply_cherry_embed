@@ -209,6 +209,7 @@ static hpm_stat_t board_uart_dma_config(void)
             rx_descriptors[i].ctrl &= ~DMA_MGR_INTERRUPT_MASK_TC;
             printf("linker_addr:0x%08x  %d\n", (uint32_t)&rx_descriptors[i], i);
         }
+        printf("uart rx configed");
         chg_config.dst_addr = core_local_mem_to_sys_address(BOARD_RUNNING_CORE, (uint32_t)uart_rx_buf[0]);
         chg_config.linked_ptr = core_local_mem_to_sys_address(BOARD_RUNNING_CORE, (uint32_t)&rx_descriptors[0]);
         dma_mgr_setup_channel(resource, &chg_config);
@@ -217,7 +218,7 @@ static hpm_stat_t board_uart_dma_config(void)
         dma_mgr_enable_chn_irq(resource, DMA_MGR_INTERRUPT_MASK_TC);
         dma_mgr_enable_dma_irq_with_priority(resource, 1);
     }
-    printf("uart rx configed");
+    printf("uart rx full configed");
     /* uart tx dma config */
     resource = &dma_resource_pools[UART_TX_DMA_RESOURCE_INDEX];
     if (dma_mgr_request_resource(resource) == status_success) {
