@@ -315,8 +315,8 @@ void HSP_Loop(void)
         ROM_API_TABLE_ROOT->run_bootloader(&boot_arg);
     }
 
-    if (WS2812_Update_Flag) {
-        WS2812_Update();
-        WS2812_Update_Flag = false;
-    }
+    //if (WS2812_Update_Flag) {
+    //    WS2812_Update();
+    //    WS2812_Update_Flag = false;
+    //}
 }
