@@ -42,8 +42,10 @@ static inline void SWDIO_DIR_Init(void)
 int main(void)
 {
     board_init();
+    USB_LOG_INFO("init usb\r\n");
     printf("board_inited");
     serial_number_init();
+    USB_LOG_INFO("init usb\r\n");
     printf("init usb");
     board_init_usb(HPM_USB0);
     dma_mgr_init();
